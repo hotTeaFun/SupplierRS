@@ -1,0 +1,132 @@
+
+.landing__header {
+    padding-top: 12px;
+    text-align: center;
+  }
+  .landing .landing__header-title {
+    max-width: 680px;
+    line-height: normal;
+    color: $landing-accent-color;
+    margin: auto auto 20px;
+  }
+  
+  .landing__header-img {
+    margin-top: 80px;
+    max-width: 1000px;
+  }
+  
+  .landing .landing__header-subhead {
+    color: $landing-accent-color;
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 500px;
+    margin-bottom: 30px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+.choice_page_title {
+    padding-top: 120px;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    white-space: nowrap;
+  }
+.choice_subtitle{
+    display: inline;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+.choice_subtitle_timestamp{
+    text-decoration: underline;
+  }
+  .arrow {
+    position: relative;
+    color: #333;
+    font-family: Arial sans-serif;
+    font-size: 2em;
+    text-decoration: none;
+    padding: 0.5em 1.5em;
+  }
+  
+  .arrow:before, .arrow:after {
+    content:"";
+    background: #333;
+    -webkit-border-radius: 0.2em;
+    border-radius: 0.2em;
+    display: block;
+    height: 0.4em;
+    position: absolute;
+    right: 0;
+    width: 1em;
+  }
+  
+  .arrow.left:before, .arrow.left:after {
+    left: 0;
+  }
+  
+  .arrow.left:before {
+    top: 1.1em;
+  }
+  
+  .arrow.left:after, .arrow.left:before,.arrow.right:before {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  
+  arrow.left:before, .arrow.right:before, .arrow.left:after {
+    top: 0.66em;
+  }
+  
+  .arrow.left:after, .arrow.right:after {
+      bottom: 0.66em;
+      -webkit-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+  }
+  
+  .arrow:hover, #arrow:focus {
+    color: #c00;
+  }
+  
+  .arrow:hover:before, .arrow:hover:after,  .arrow:focus:before, .arrow:focus:after {
+    background: #c00;
+  }
+  
+  .arrow-triangle {
+    position: relative;
+    background-color: #333;
+    text-align: left;
+    margin: 1.2em;
+  }
+  
+  .arrow-triangle:before,
+  .arrow-triangle:after {
+    content: '';
+    position: absolute;
+    background-color: inherit;
+  }
+  
+  .arrow-triangle,
+  .arrow-triangle:before,
+  .arrow-triangle:after {
+    width:  2em;
+    height: 2em;
+    border-top-right-radius: 30%;
+  }
+  
+  .arrow-triangle.left {
+    transform: rotate(-90deg) skewX(-30deg) scale(1,.866);
+  }
+  
+  .arrow-triangle.right {
+    transform: rotate(-30deg) skewX(-30deg) scale(1,.866);
+  }
+  
+  .arrow-triangle:before {
+    transform: rotate(-135deg) skewX(-45deg) scale(1.414,.707) translate(0,-50%);
+  }
+  
+  .arrow-triangle:after {
+    transform: rotate(135deg) skewY(-45deg) scale(.707,1.414) translate(50%);
+  }
+  
