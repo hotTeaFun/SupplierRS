@@ -7,12 +7,19 @@ import LogIn from '../LogIn/index';
 import ExamplePage from '../Example/index';
 import ExamplePageTwo from '../ExampleTwo/index';
 import ChoicePage from '../Choice';
-import HomePage from '../HomePage';
+import HomePage from './HomePage';
+import FormPage from './FormPage';
+import DisruptionPage from './DisruptionPage';
+import ContractPage from './ContractPage';
+import SupplierPage from './SupplierPage';
 
 const Pages = () => (
   <Switch>
     <Route path="/pages/home" component={HomePage} />
-    <Route path="/pages/two" component={ExamplePageTwo} />
+    <Route path="/pages/form" component={FormPage} />
+    <Route path="/pages/disruption" component={DisruptionPage} />
+    <Route path="/pages/contract" component={ContractPage} />
+    <Route path="/pages/supplier" component={SupplierPage} />
   </Switch>
 );
 
