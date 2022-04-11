@@ -9,7 +9,9 @@ import {
 import ManageSearchIcon from '@mui/icons-material/ManageSearch';
 import { Grid, Box } from '@material-ui/core';
 import FacebookIcon from 'mdi-react/FacebookIcon';
-import { Card, CardContent, Input } from '@mui/material';
+import {
+  Card, CardContent, Divider, Input,
+} from '@mui/material';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormHelperText from '@mui/material/FormHelperText';
@@ -17,16 +19,27 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import InputAdornment from '@mui/material/InputAdornment';
 import TextField from '@mui/material/TextField';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import Button from '@mui/material/Button';
+import OutlinedInput from '@mui/material/OutlinedInput';
 import { DemoCard, DoubleCard } from './components/infoCard';
 import BasicDateRangePicker from './components/dateRangePicker';
 import VectorMap from '../Maps/VectorMap/index';
 import { LocationOptions, TypeOptions } from './components/custom_selector';
+import ContractDataTable from './components/contract_table';
 
 const ContractPage = () => {
   const { t } = useTranslation('common');
   const [location, setLocation] = React.useState('');
   const handleChange = (event) => {
     setLocation(event.target.value);
+  };
+  const [value, setValue] = React.useState(new Date('2014-08-18T21:11:54'));
+
+  const handleExpiredDateChange = (newValue) => {
+    setValue(newValue);
   };
   const demo = {
     id: '351123',
@@ -41,105 +54,66 @@ const ContractPage = () => {
         <div style={{ display: 'flex', paddingLeft: '12px', verticalAlign: 'center' }}>
           <ManageSearchIcon />
           <div style={{ paddingLeft: '12px', paddingBottom: '12px' }}>
-            <b className="page-title">Form</b>
+            <b className="page-title">Contract</b>
           </div>
         </div>
-        <div className="form_main_div">
-          <div className="form_caption_div">Set up</div>
-          <p className="form_desc_p">
-            You just need to click each angle to show your preference of Contracts selection
-          </p>
-          <div style={{ display: 'flex', verticalAlign: 'center', alignItems: 'center' }}>
-            <div style={{ fontSize: 18, flexBasis: '50%', width: '100%' }}>
-              <div className="form_item_div">
-                <div style={{ width: 120 }}><b>Price</b></div>
+        <div className="contract_main_div">
+          <div>
+            <div style={{
+              display: 'flex', flexDirection: 'row', verticalAlign: 'center', alignItems: 'center',
+            }}
+            >
+              <div className="contract_item_div">
+                <div><b>Company Name</b></div>
                 <TextField
-                  label="Lower"
-                  type="number"
+                  label="name"
+                  type="text"
                   id="outlined-start-adornment"
                   sx={{ m: 1 }}
                   size="small"
                   InputProps={{
-                    startAdornment: <InputAdornment position="start">$</InputAdornment>,
-                  }}
-                />
-                <b>—</b>
-                <TextField
-                  label="Upper"
-                  type="number"
-                  id="outlined-start-adornment"
-                  size="small"
-                  sx={{ m: 1 }}
-                  InputProps={{
-                    startAdornment: <InputAdornment position="start">$</InputAdornment>,
                   }}
                 />
               </div>
-              <div className="form_item_div">
-                <div style={{ width: 110 }}><b>Delivery</b></div>
+              <div className="contract_item_div">
+                <div><b>Raw material type</b></div>
                 <TextField
-                  label="Earliest"
-                  type="number"
+                  label="type"
+                  type="text"
                   id="outlined-start-adornment"
                   sx={{ m: 1 }}
                   size="small"
                   InputProps={{
-                    // startAdornment: <InputAdornment position="start">{' '}</InputAdornment>,
-                  }}
-                />
-                <b>—</b>
-                <TextField
-                  label="Latest"
-                  type="number"
-                  id="outlined-start-adornment"
-                  size="small"
-                  sx={{
-                    m: 1,
-                  }}
-                  InputProps={{
-                    // startAdornment: <InputAdornment position="start">{' '}</InputAdornment>,
                   }}
                 />
               </div>
-              <div className="form_item_div">
-                <div style={{ width: 120 }}><b>Cost</b></div>
-                <TextField
-                  label="Lower"
-                  type="number"
-                  id="outlined-start-adornment"
-                  sx={{ m: 1 }}
-                  size="small"
-                  InputProps={{
-                    startAdornment: <InputAdornment position="start">$</InputAdornment>,
-                  }}
-                />
-                <b>—</b>
-                <TextField
-                  label="Upper"
-                  type="number"
-                  id="outlined-start-adornment"
-                  size="small"
-                  sx={{
-                    m: 1,
-                  }}
-                  InputProps={{
-                    startAdornment: <InputAdornment position="start">$</InputAdornment>,
-                  }}
-                />
+              <div className="contract_item_div">
+                <div><b>Expire date</b></div>
+                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                  <DatePicker
+                    value={value}
+                    onChange={(newValue) => {
+                      setValue(newValue);
+                    }}
+                    InputProps={{
+                    }}
+                    renderInput={(params) => (
+                      <TextField
+                        {...params}
+                        label="date"
+                        size="small"
+                      />
+                    )}
+                  />
+                </LocalizationProvider>
               </div>
-              <div className="form_item_div">
-                <div style={{ width: 70 }}><b>Location</b></div>
-                <FormControl>
-                  <LocationOptions />
-                </FormControl>
-              </div>
-              <div className="form_item_div">
-                <div style={{ width: 70 }}><b>Type</b></div>
-                <FormControl>
-                  <TypeOptions />
-                </FormControl>
+              <div className="contract_item_div">
+                <Container sx={{ padding: '10px' }}>
+                  <Button variant="contained">Search</Button>
+                </Container>
               </div>
             </div>
+            <ContractDataTable />
             <div style={{ flexBasis: '50%', backgroundColor: '#C4C4C4' }}>
               <div />
             </div>
