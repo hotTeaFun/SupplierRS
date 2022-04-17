@@ -1,0 +1,29 @@
+.disruption_main_div {
+    padding: 10px;
+    // display: flex;
+    // min-height: 500px;
+    width: 100%;
+    margin: 0%;
+    background-color: #FFFFFF;
+}
+
+.disruption_number_div {
+    background-color: #c4c4c4;
+    color: #000000;
+    font-family: Microsoft YaHei;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: -0.015em;
+    text-align: center;
+    padding: 4px;
+    margin-right: -40px;
+    margin-top: -35px;
+}
+
+.disruption_item_div {
+    border: 1px solid #ACA5A5;
+    box-sizing: border-box;
+    min-height: 40px;
+    border-radius: 8px;
+}
